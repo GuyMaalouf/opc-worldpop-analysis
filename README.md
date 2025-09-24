@@ -1,26 +1,65 @@
-# Population Density Analysis for Ol Pejeta Conservancy (WorldPop 2020)
+# OPC WorldPop Analysis
 
-This repository contains a Python script and instructions for processing gridded population data within the Ol Pejeta Conservancy in Kenya, using the 2020 WorldPop raster dataset.
+This repository contains a Python script and necessary data instructions to reproduce population density estimates for Ol Pejeta Conservancy (OPC), using the 2020 WorldPop dataset.
 
-## 📂 Files Required
+## Overview
 
-- `kenya_opc_boundary.kml`: Polygon boundary of Ol Pejeta Conservancy.
-    - You can export this from Google Earth or GIS tools.
-- `ken_ppp_2020.tif`: 2020 WorldPop raster for Kenya. Download from:
-    - [https://hub.worldpop.org/geodata/summary?id=6530]([url](https://hub.worldpop.org/geodata/summary?id=6530))
+The script performs the following tasks:
+- Clips the WorldPop raster dataset to the OPC boundary
+- Converts cell values to population density (people/km²)
+- Aggregates data from 100m to 1km resolution for MAUP analysis
+- Outputs summary statistics for each resolution
+- Plots density heatmaps
 
-Place both files in the root directory before running the script.
+This supports the population exposure assessment in accordance with the JARUS SORA 2.5 framework (Step 2: Ground Risk).
 
-## 🧪 Output
+## Repository Contents
 
-- Average and maximum population density within the conservancy at:
-  - 100m x 100m resolution
-  - 1km x 1km resolution (aggregated)
-- Side-by-side plots for visual analysis
+- `opc_worldpop_analysis.py` — Main Python script for processing and plotting
+- `kenya_opc_boundary.kml` — KML polygon defining the Ol Pejeta Conservancy boundary (not included)
+- `ken_ppp_2020.tif` — WorldPop Kenya raster dataset (not included)
 
-## 🐍 Dependencies
+## Prerequisites
 
-We recommend running inside a clean virtual environment. Required Python packages:
+Install Python dependencies using pip:
 
 ```bash
-pip install numpy==1.24.4 scipy==1.8.0 geopandas rasterio matplotlib
+pip install geopandas rasterio numpy matplotlib scipy
+```
+
+Recommended Python version: **3.10+**  
+Tested with:
+- `numpy==1.24.4`
+- `scipy==1.8.0`
+- `matplotlib==3.7.2`
+- `rasterio==1.3.9`
+- `geopandas==0.14.3`
+
+## Input Files
+
+Download the required files manually:
+
+- WorldPop Kenya 2020 raster (`ken_ppp_2020.tif`)  
+  → [WorldPop Dataset Link](https://www.worldpop.org/geodata/summary?id=24777)
+
+- Ol Pejeta Conservancy boundary KML (`kenya_opc_boundary.kml`)  
+  → Use official GIS boundaries or digitise from public maps
+
+## Running the Script
+
+```bash
+python opc_worldpop_analysis.py
+```
+
+## Outputs
+
+- Summary statistics printed to terminal for both 100m and 1km resolution
+- Side-by-side density heatmaps shown in a matplotlib window
+
+## License
+
+This project is released under the MIT License. See `LICENSE` for details.
+
+## Citation
+
+If you use this code in your research, please cite the corresponding academic paper (to be linked upon publication).
