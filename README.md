@@ -16,8 +16,8 @@ This supports the population exposure assessment in accordance with the JARUS SO
 ## Repository Contents
 
 - `opc_worldpop_analysis.py` — Main Python script for processing and plotting
-- `kenya_opc_boundary.kml` — KML polygon defining the Ol Pejeta Conservancy boundary (not included)
-- `ken_ppp_2020.tif` — WorldPop Kenya raster dataset (not included)
+- `kenya_opc_boundary.kml` — KML polygon defining the Ol Pejeta Conservancy boundary
+- `ken_ppp_2020.tif` — WorldPop Kenya raster dataset (not included - can be downloaded [here](https://hub.worldpop.org/geodata/summary?id=6530))
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Tested with:
 Download the required files manually:
 
 - WorldPop Kenya 2020 raster (`ken_ppp_2020.tif`)  
-  → [WorldPop Dataset Link](https://www.worldpop.org/geodata/summary?id=24777)
+  → [WorldPop Dataset Link](https://hub.worldpop.org/geodata/summary?id=6530)
 
 - Ol Pejeta Conservancy boundary KML (`kenya_opc_boundary.kml`)  
   → Use official GIS boundaries or digitise from public maps
