@@ -30,7 +30,7 @@ The scripts support population exposure assessment in accordance with the **JARU
 Install Python dependencies with:
 
 ```bash
-pip install geopandas rasterio numpy matplotlib shapely
+pip install numpy scipy matplotlib rasterio geopandas shapely
 ```
 
 Recommended Python version: **3.10+**  
