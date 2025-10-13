@@ -79,7 +79,7 @@ python adjacent_area_stats.py
 
 **Adjacent Area Population Density**
 
-<img width="345" height="350" alt="adjacent_100m" src="https://github.com/user-attachments/assets/80eec103-26be-493b-b186-bf5446a11ec9" /> <img width="345" height="350" alt="adjacent_1km" src="https://github.com/user-attachments/assets/286c1ccf-a22b-4c7e-a3eb-e26d180a754d" />
+<img width="395" height="400" alt="adjacent_100m" src="https://github.com/user-attachments/assets/80eec103-26be-493b-b186-bf5446a11ec9" /> <img width="395" height="400" alt="adjacent_1km" src="https://github.com/user-attachments/assets/286c1ccf-a22b-4c7e-a3eb-e26d180a754d" />
 
 
 ## License
