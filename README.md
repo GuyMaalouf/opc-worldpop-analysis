@@ -5,7 +5,7 @@ This repository reproduces the **top-down (raster)** components of the study and
 - Multi-resolution (100/200/500 m) **population density maps** for the operational area and the adjacent ring
 - A **density distribution** (histogram) for the operational area with mean/median/99th-percentile overlays
 
-> **SORA Annex F alignment:** Throughout, we follow Annex F guidance to match the **population grid size** to the **aircraft’s dispersion area**. For flights below 500 ft AGL, a **200 m** grid is the optimal scale; **500 m** is an acceptable coarser alternative; 1 km is outside the recommended maximum for this operational height. We refer to this as **grid-size sensitivity** (not “MAUP”).
+> **SORA Annex F alignment:** Throughout, we follow Annex F guidance to match the **population grid size** to the **aircraft’s dispersion area**. For flights below 500 ft AGL, a **200 m** grid is the optimal scale; **500 m** is an acceptable coarser alternative.
 
 ---
 
@@ -24,25 +24,11 @@ scripts/
   opc_density_distribution.py
 ```
 
-**Note on WorldPop vintage:**  
-The paper references WorldPop **2018**; the scripts default to `ken_ppp_2020.tif`. You can use either (or both). Just point `--raster` to the file you have. WorldPop (unconstrained, ppp) is available at: https://hub.worldpop.org/
-
 ---
 
 ## Installation
 
-We recommend **conda/mamba** to avoid GDAL/PROJ headaches.
-
-```bash
-mamba create -n opc-pop python=3.10 -y
-mamba activate opc-pop
-
-mamba install -y geopandas rasterio shapely matplotlib numpy
-# Optional (nice to have): scipy
-# mamba install -y scipy
-```
-
-Alternatively with `pip` (works, but ensure system GDAL/PROJ are present):
+We recommend `pip` (works, but ensure system GDAL/PROJ are present):
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
@@ -102,9 +88,12 @@ Example (operational area, WorldPop):
 ## Figures (suggested for README)
 
 - **Multi-grid maps (100/200/500 m)** for OPC: highlight grid-size sensitivity  
-  *(insert your updated PNG here)*
+  <img width="1600" height="500" alt="100_200_500m_values_mod" src="https://github.com/user-attachments/assets/4af806da-232d-43e9-9068-3bc9cef074f9" />
+  <img width="1000" height="600" alt="adjacent_area_500m" src="https://github.com/user-attachments/assets/98487841-0dc2-44cc-9aa7-ceee58ac9389" /><img width="1000" height="600" alt="adjacent_area_200m" src="https://github.com/user-attachments/assets/7f048441-2715-4a42-b9c8-e032f1a860ce" /><img width="1000" height="600" alt="adjacent_area_100m" src="https://github.com/user-attachments/assets/bb029f23-0518-44e8-9a31-fa7c6e7a258a" />
+
 - **Operational density distribution** (100 m): mean/median/99th percentile with cumulative line  
-  *(insert `figs/operational_density_distribution.png`)*
+  <img width="2588" height="1180" alt="operational_density_distribution" src="https://github.com/user-attachments/assets/3ff22f19-e1e9-4ca6-9ba8-cab7d8041abb" />
+
 
 ---
 
