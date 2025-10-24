@@ -89,7 +89,7 @@ Example (operational area, WorldPop):
 
 - **Multi-grid maps (100/200/500 m)** for OPC: highlight grid-size sensitivity  
   <img width="1600" height="500" alt="100_200_500m_values_mod" src="https://github.com/user-attachments/assets/4af806da-232d-43e9-9068-3bc9cef074f9" />
-  <img width="500" height="300" alt="adjacent_area_500m" src="https://github.com/user-attachments/assets/98487841-0dc2-44cc-9aa7-ceee58ac9389" /><img width="500" height="300" alt="adjacent_area_200m" src="https://github.com/user-attachments/assets/7f048441-2715-4a42-b9c8-e032f1a860ce" /><img width="500" height="300" alt="adjacent_area_100m" src="https://github.com/user-attachments/assets/bb029f23-0518-44e8-9a31-fa7c6e7a258a" />
+  <img width="200" height="300" alt="adjacent_area_500m" src="https://github.com/user-attachments/assets/98487841-0dc2-44cc-9aa7-ceee58ac9389" /><img width="200" height="300" alt="adjacent_area_200m" src="https://github.com/user-attachments/assets/7f048441-2715-4a42-b9c8-e032f1a860ce" /><img width="200" height="300" alt="adjacent_area_100m" src="https://github.com/user-attachments/assets/bb029f23-0518-44e8-9a31-fa7c6e7a258a" />
 
 - **Operational density distribution** (100 m): mean/median/99th percentile with cumulative line  
   <img width="2588" height="1180" alt="operational_density_distribution" src="https://github.com/user-attachments/assets/3ff22f19-e1e9-4ca6-9ba8-cab7d8041abb" />
