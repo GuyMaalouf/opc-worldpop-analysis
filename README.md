@@ -13,8 +13,8 @@ This repository reproduces the **top-down (raster)** components of the study and
 
 ```
 data/
-  Safety.kml
-  OPC_buffers_from_contingency.kml
+  operational_area.kml
+  adjacent_area_5km.kml
   ken_ppp_2020.tif 
 figs/
   # output images are written here
