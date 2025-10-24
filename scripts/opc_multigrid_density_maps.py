@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # --- Inputs ---
-kml_path = "data/Safety.kml"                 # Boundary KML
+kml_path = "data/operational_area.kml"                 # Boundary KML
 raster_path = "data/ken_ppp_2020.tif"        # WorldPop 'ppp' (people per pixel) at ~100 m native grid
 
 # --- Load boundary ---
