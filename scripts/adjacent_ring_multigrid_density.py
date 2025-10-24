@@ -13,7 +13,7 @@ import matplotlib
 
 
 # ========= USER INPUTS =========
-KML_PATH = "data/OPC_buffers_from_contingency.kml"
+KML_PATH = "data/adjacent_area_5km.kml"
 RASTER_PATH = "data/ken_ppp_2020.tif"  # WorldPop people per 100 m x 100 m cell
 NAME_5KM = "Adjacent Area 5 km (from contingency)"
 NAME_CONTING = "Contingency Volume (from KMZ)"
