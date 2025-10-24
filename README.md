@@ -15,7 +15,7 @@ This repository reproduces the **top-down (raster)** components of the study and
 data/
   Safety.kml
   OPC_buffers_from_contingency.kml
-  ken_ppp_2020.tif   # or ken_ppp_2018.tif (see note below)
+  ken_ppp_2020.tif 
 figs/
   # output images are written here
 scripts/
@@ -105,11 +105,6 @@ Example (operational area, WorldPop):
 - **Outputs**: saved under `figs/` by default.  
 - **Large files**: keep GeoTIFFs in `data/` and consider adding them to `.gitignore`.
 
----
-
-## Terminology
-
-We avoid calling this “MAUP” in the code/docs. The effect we evaluate is **grid-size sensitivity** per **Annex F**: the choice of **population-grid size** relative to **dispersion area** materially affects **maximum-cell density** and hence iGRC.
 
 ---
 
