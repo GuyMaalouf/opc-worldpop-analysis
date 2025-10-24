@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # --- Inputs ---
-kml_path = "Safety.kml"                 # Boundary KML
-raster_path = "ken_ppp_2020.tif"        # WorldPop 'ppp' (people per pixel) at ~100 m native grid
+kml_path = "data/Safety.kml"                 # Boundary KML
+raster_path = "data/ken_ppp_2020.tif"        # WorldPop 'ppp' (people per pixel) at ~100 m native grid
 
 # --- Load boundary ---
 boundary_gdf = gpd.read_file(kml_path, driver='KML').to_crs("EPSG:4326")
