@@ -13,16 +13,15 @@ import matplotlib
 
 
 # ========= USER INPUTS =========
-KML_PATH = "OPC_buffers_from_contingency.kml"
-RASTER_PATH = "ken_ppp_2020.tif"  # WorldPop people per 100 m x 100 m cell
+KML_PATH = "data/OPC_buffers_from_contingency.kml"
+RASTER_PATH = "data/ken_ppp_2020.tif"  # WorldPop people per 100 m x 100 m cell
 NAME_5KM = "Adjacent Area 5 km (from contingency)"
 NAME_CONTING = "Contingency Volume (from KMZ)"
 
 # Output images
-OUT_100M = "adjacent_area_100m.png"
-OUT_200M = "adjacent_area_200m.png"
-OUT_500M = "adjacent_area_500m.png"
-OUT_1KM  = "adjacent_area_1km.png"
+OUT_100M = "figs/adjacent_area_100m.png"
+OUT_200M = "figs/adjacent_area_200m.png"
+OUT_500M = "figs/adjacent_area_500m.png"
 
 # Plotting style
 CMAP_NAME = "plasma"
@@ -185,26 +184,12 @@ print(f"✅ Total Population: {total_500:.0f} people")
 print(f"✅ Avg Density: {avg_500:.2f} ppl/km²")
 print(f"✅ Max Density: {max_500:.2f} ppl/km²")
 
-# ---- Aggregate to 1 km ----
-dens_1km, ppl_1km, cell_area_1k = aggregate_density_from_people(people_100m, factor=10)
-area_1k = dens_1km.count() * cell_area_1k
-total_1k = ppl_1km.sum()
-avg_1k   = dens_1km.mean()
-max_1k   = dens_1km.max()
-
-print("\n🟦 1 km × 1 km aggregated — Adjacent Area (5 km ring)")
-print(f"✅ Area (approx.): {area_1k:.2f} km²")
-print(f"✅ Total Population: {total_1k:.0f} people")
-print(f"✅ Avg Density: {avg_1k:.2f} ppl/km²")
-print(f"✅ Max Density: {max_1k:.2f} ppl/km²")
-
 # ========= PLOTS (separate figures) =========
 # --- Compute global color scale (shared across all plots) ---
 all_values = np.concatenate([
     dens_100m_m.compressed(),
     dens_200m.compressed(),
-    dens_500m.compressed(),
-    dens_1km.compressed()
+    dens_500m.compressed()
 ])
 vmin_global = np.nanpercentile(all_values, 0)   # or 0 for strict min
 vmax_global = np.nanpercentile(all_values, 100)  # clip top 0.5% outliers
@@ -216,8 +201,6 @@ save_density_plot(dens_100m_m, "Adjacent Area Population Density (100 m grid siz
 save_density_plot(dens_200m,   "Adjacent Area Population Density (200 m grid size)", OUT_200M,
                   vmin=vmin_global, vmax=vmax_global)
 save_density_plot(dens_500m,   "Adjacent Area Population Density (500 m grid size)", OUT_500M,
-                  vmin=vmin_global, vmax=vmax_global)
-save_density_plot(dens_1km,    "Adjacent Area Population Density (1 km)", OUT_1KM,
                   vmin=vmin_global, vmax=vmax_global)
 
 
