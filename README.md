@@ -110,4 +110,4 @@ Example (operational area, WorldPop):
 
 ## License
 
-MIT (or your preferred license). Please cite WorldPop when using the datasets.
+MIT. Please cite WorldPop when using the datasets.
