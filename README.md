@@ -105,6 +105,11 @@ Example (operational area, WorldPop):
 - **Outputs**: saved under `figs/` by default.  
 - **Large files**: keep GeoTIFFs in `data/` and consider adding them to `.gitignore`.
 
+---
+
+## 💰 Funding
+
+This work was funded by the European Union’s Horizon Europe research and innovation funding programme under the Marie Skłodowska-Curie grant agreement no. 101071224.
 
 ---
 
