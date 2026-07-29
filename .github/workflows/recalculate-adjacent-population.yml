@@ -1,0 +1,53 @@
+name: Recalculate adjacent-area population
+
+on:
+  pull_request:
+    paths:
+      - "scripts/recalculate_adjacent_population.py"
+      - "data/adjacent_area_5km.kml"
+      - ".github/workflows/recalculate-adjacent-population.yml"
+  workflow_dispatch:
+
+jobs:
+  recalculate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install geospatial dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy rasterio shapely pyproj geopandas exactextract pandas
+
+      - name: Download original WorldPop Kenya 2020 raster
+        run: |
+          mkdir -p /tmp/worldpop
+          curl --fail --location --retry 4 --retry-delay 5 \
+            --output /tmp/worldpop/ken_ppp_2020.tif \
+            https://data.worldpop.org/GIS/Population/Global_2000_2020/2020/KEN/ken_ppp_2020.tif
+          ls -lh /tmp/worldpop/ken_ppp_2020.tif
+
+      - name: Run corrected and original calculations
+        run: |
+          python scripts/recalculate_adjacent_population.py \
+            --kml data/adjacent_area_5km.kml \
+            --raster /tmp/worldpop/ken_ppp_2020.tif \
+            --output results/adjacent_population_recalculation.json
+
+      - name: Print result
+        run: cat results/adjacent_population_recalculation.json
+
+      - name: Upload calculation result
+        uses: actions/upload-artifact@v4
+        with:
+          name: adjacent-population-recalculation
+          path: results/adjacent_population_recalculation.json
+          if-no-files-found: error
