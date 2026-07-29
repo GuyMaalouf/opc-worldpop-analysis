@@ -9,6 +9,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import geopandas as gpd
+import rasterio
 from exactextract import exact_extract
 from pyproj import Geod
 from shapely.geometry import Polygon
@@ -57,15 +58,16 @@ def main() -> None:
     area_km2 = geodesic_area_km2(adjacent)
 
     gdf = gpd.GeoDataFrame({"id": [1]}, geometry=[adjacent], crs="EPSG:4326")
-    result = exact_extract(
-        str(args.raster),
-        gdf,
-        [
-            "coverage_weighted_mean=mean",
-            "population=sum(coverage_weight=area_spherical_km2)",
-        ],
-        output="pandas",
-    )
+    with rasterio.open(args.raster) as src:
+        result = exact_extract(
+            src,
+            gdf,
+            [
+                "coverage_weighted_mean=mean",
+                "population=sum(coverage_weight=area_spherical_km2)",
+            ],
+            output="pandas",
+        )
 
     mean_density = float(result.loc[0, "coverage_weighted_mean"])
     total_population = float(result.loc[0, "population"])
