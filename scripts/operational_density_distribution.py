@@ -11,7 +11,7 @@ from shapely.ops import unary_union
 from pathlib import Path
 
 # ========= USER INPUTS =========
-KML_PATH = "data/operational_area.kml"                 # your operational KML
+KML_PATH = "data/operational_area.kml.kml"                 # your operational KML
 RASTER_PATH = "data/ken_ppp_2020.tif"        # WorldPop 'ppp' (people per 100 m pixel)
 NAME_OPERATIONAL = None                 # e.g. "Operational", or None to use all polygons
 OUT_PLOT = "figs/operational_density_distribution.png"
